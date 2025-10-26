@@ -14,7 +14,7 @@ function App() {
         </p>
         <nav>
           <NavLink linkName="Home" src="#" />
-          <NavLink linkName="Projects" src="#" />
+          <NavLink linkName="Projects" src="https://github.com/klabruben3" />
           <NavLink linkName="About" src="#" />
           <NavLink linkName="Contact" src="#" />
         </nav>
