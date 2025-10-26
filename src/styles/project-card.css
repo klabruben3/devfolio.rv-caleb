@@ -1,0 +1,59 @@
+#recent-projects .projects {
+  margin-top: var(--content-space);
+  display: flex;
+  gap: 10px;
+}
+
+.project-card {
+  position: relative;
+  display: block;
+  width: fit-content;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  inset: 0;
+  background-color: rgba(112, 46, 46, 0.168);
+  display: block;
+  position: absolute;
+  z-index: 1;
+  transition: opacity 500ms;
+}
+
+.project-card:hover::before {
+  opacity: 0;
+}
+
+.project-info {
+  position: absolute;
+  transform: translateY(-100%);
+  top: 100%;
+  padding: 10px;
+  z-index: 2;
+}
+.project-info h3 {
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: var(--heading-color);
+  margin-bottom: 5px;
+}
+.project-info p {
+  font-size: 0.8rem;
+  color: var(--font-color);
+}
+.project-video,
+.project-image {
+  width: inherit;
+  display: block;
+  transform-origin: center center;
+  transition: transform 250ms;
+}
+
+.project-card:hover .project-video {
+  transform: scale(1.1, 1.1);
+}

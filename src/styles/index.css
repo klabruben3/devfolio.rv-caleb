@@ -1,15 +1,19 @@
 :root {
   --very-dark-blue: #1d1f27ff;
+  --gray: rgb(104, 115, 156);
   --dark-blue: #232631;
   --dark-purple: #6441b1ff;
   --sweet-orange: #e84300;
+  --sweet-pink: #bc5b85;
   --font-color: #fff8e5;
   --heading-color: #ffe6a0;
+  --bg-filter: rgba(100, 65, 177, 0.221);
+  --content-space: 15px;
 }
 
 @font-face {
   font-family: "JackInput";
-  src: url(./assets/fonts/jackinput/JAi_____.TTF) format("truetype");
+  src: url(../assets/fonts/jackinput/JAi_____.TTF) format("truetype");
 }
 
 *,
@@ -37,8 +41,12 @@ body {
 #root {
   background-color: var(--very-dark-blue);
   width: clamp(900px, 80vw, 1200px);
-  height: 100vh;
+  height: calc(100vh - 20px);
   position: relative;
 
   box-shadow: 0 0 10px black;
+  margin-block: 10px;
+  padding-bottom: 10px;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
