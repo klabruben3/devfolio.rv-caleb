@@ -9,6 +9,7 @@
   --heading-color: #ffe6a0;
   --bg-filter: rgba(100, 65, 177, 0.221);
   --content-space: 15px;
+  --paddOrMarg: 10px;
 }
 
 @font-face {
@@ -41,12 +42,12 @@ body {
 #root {
   background-color: var(--very-dark-blue);
   width: clamp(900px, 80vw, 1200px);
-  height: calc(100vh - 20px);
+  height: calc(100vh - 2 * var(--paddOrMarg));
   position: relative;
 
   box-shadow: 0 0 10px black;
-  margin-block: 10px;
-  padding-bottom: 10px;
+  margin-block: var(--paddOrMarg);
+  padding-bottom: var(--paddOrMarg);
   overflow-y: auto;
   scrollbar-width: none;
 }

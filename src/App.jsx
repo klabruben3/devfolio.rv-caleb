@@ -1,6 +1,10 @@
 import "./styles/app.css";
 import NavLink from "./components/NavLink";
 import ProjectCard from "./components/ProjectCard";
+import cleanChase from "./assets/project_media/clean_chase.mp4";
+import fastNote from "./assets/project_media/fastnote_2.0.png";
+import pixelKombat from "./assets/project_media/pixel_kombat.png";
+import ratingComponent from "./assets/project_media/rating-component.png";
 
 function App() {
   return (
@@ -14,7 +18,7 @@ function App() {
         </p>
         <nav>
           <NavLink linkName="Home" src="#" />
-          <NavLink linkName="Projects" src="https://github.com/klabruben3" />
+          <NavLink linkName="Projects" src="#" />
           <NavLink linkName="About" src="#" />
           <NavLink linkName="Contact" src="#" />
         </nav>
@@ -31,10 +35,14 @@ function App() {
             <p>
               <span>Software Developer</span> | React.js | c++
             </p>
-            <button className="projects">
+            <a
+              className="projects"
+              href="https://github.com/klabruben3"
+              target="_blank"
+            >
               VIEW PROJECTS
               <img src="arrow.png" alt="Right Arrow" width={15} />
-            </button>
+            </a>
           </div>
           <canvas id="intro-animation"></canvas>
         </section>
@@ -47,7 +55,7 @@ function App() {
               description="Minimal JavaScript animation that simulates
                a chain of circles following a randomly
                moving target across the canvas"
-              src="./src/assets/project_media/clean_chase.mp4"
+              src={cleanChase}
               type="video"
               href="https://klabruben3.github.io/clean-chase/"
             />
@@ -55,7 +63,7 @@ function App() {
               title="Pixel Kombat"
               description="A retro-inspired arcade maze 
               game that pays homage to the classic Pac-Man"
-              src="./src/assets/project_media/pixel_kombat.png"
+              src={pixelKombat}
               type="image"
               href="https://github.com/klabruben3/Pixel-Kombat/tree/main/genesis"
             />
@@ -63,9 +71,17 @@ function App() {
               title="FastNote 2.0"
               description="A minimal interactive task manager
               built with vanilla JavaScript, HTML, and CSS"
-              src="./src/assets/project_media/fastnote_2.0.png"
+              src={fastNote}
               type="image"
-              href="https://github.com/klabruben3/FastNote-2.0"
+              href="https://klabruben3.github.io/FastNote-2.0/src"
+            />
+            <ProjectCard
+              title="Rating Component"
+              description="A clean and engaging UI that captures
+              user feedback through a two-step interaction process"
+              src={ratingComponent}
+              type="image"
+              href="https://klabruben3.github.io/interactive-rating-component/"
             />
           </div>
         </section>
