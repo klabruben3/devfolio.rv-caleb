@@ -1,13 +1,13 @@
 :root {
   --very-dark-blue: #1d1f27ff;
-  --gray: rgb(104, 115, 156);
+  --gray: #68739c;
   --dark-blue: #232631;
   --dark-purple: #6441b1ff;
   --sweet-orange: #e84300;
   --sweet-pink: #bc5b85;
   --font-color: #fff8e5;
   --heading-color: #ffe6a0;
-  --bg-filter: rgba(100, 65, 177, 0.221);
+  --bg-filter: #6441b138;
   --content-space: 15px;
   --paddOrMarg: 10px;
 }

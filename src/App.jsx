@@ -1,6 +1,7 @@
 import "./styles/app.css";
 import NavLink from "./components/NavLink";
 import ProjectCard from "./components/ProjectCard";
+import IntroAnimation from "./components/IntroAnimation";
 import cleanChase from "./assets/project_media/clean_chase.mp4";
 import fastNote from "./assets/project_media/fastnote_2.0.png";
 import pixelKombat from "./assets/project_media/pixel_kombat.png";
@@ -44,7 +45,7 @@ function App() {
               <img src="arrow.png" alt="Right Arrow" width={15} />
             </a>
           </div>
-          <canvas id="intro-animation"></canvas>
+          <IntroAnimation />
         </section>
         <hr />
         <section id="recent-projects">
