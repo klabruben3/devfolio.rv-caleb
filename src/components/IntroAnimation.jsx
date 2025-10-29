@@ -8,11 +8,10 @@ function IntroAnimation() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    // Shapes properties
-    const circleCount = 10;
+    const circleCount = 15;
     const strokeWidth = 2;
     const circleRad = 5;
-    const speed = 0.02;
+    const speed = 0.002; // affects ease timing
 
     const colors = [
       "#6441b138",
@@ -25,6 +24,7 @@ function IntroAnimation() {
       "#68739c",
       "#1d1f27ff",
     ];
+    const lineColor = colors[1];
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
@@ -32,8 +32,10 @@ function IntroAnimation() {
     };
 
     const createRandomPos = () => {
-      const targetX = Math.random() * (canvas.width - circleRad) + circleRad;
-      const targetY = Math.random() * (canvas.height - circleRad) + circleRad;
+      const targetX =
+        Math.random() * (canvas.width - 2 * circleRad) + circleRad;
+      const targetY =
+        Math.random() * (canvas.height - 2 * circleRad) + circleRad;
 
       return { x: targetX, y: targetY };
     };
@@ -45,100 +47,92 @@ function IntroAnimation() {
       return colors[colorIndex];
     };
 
+    // Circle data: x, y, color, target, progress
     const circles = [];
     const createCircles = () => {
       for (let i = 0; i < circleCount; i++) {
-        const randomPos = createRandomPos();
-        const connect = Math.round(Math.random() * (circleCount - 1)); // Index of the circle to connect to
+        let connect = Math.round(Math.random() * (circleCount - 1));
+        if (connect == i) connect = (i + 1) % circleCount;
         const circle = {
-          x: randomPos.x,
-          y: randomPos.y,
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
           strokeColor: selectedColor(),
           fillColor: selectedColor(),
           cI: connect,
+          target: createRandomPos(),
+          progress: 0, // 0 → 1 progress toward target
         };
-
         circles.push(circle);
       }
     };
 
     const drawCircles = () => {
       ctx.lineWidth = strokeWidth;
-
-      for (const circle of circles) {
+      for (const c of circles) {
         ctx.beginPath();
-        ctx.fillStyle = circle.fillColor;
-        ctx.strokeStyle = circle.strokeColor;
-        ctx.arc(circle.x, circle.y, circleRad, 0, 2 * Math.PI, false);
+        ctx.fillStyle = c.fillColor;
+        ctx.strokeStyle = c.strokeColor;
+        ctx.arc(c.x, c.y, circleRad, 0, 2 * Math.PI);
         ctx.fill();
         ctx.stroke();
       }
     };
 
     const connectCircles = () => {
-      ctx.strokeStyle = "red";
-      for (const circle of circles) {
+      ctx.strokeStyle = lineColor;
+      ctx.lineWidth = strokeWidth;
+      for (const c of circles) {
         ctx.beginPath();
-        ctx.lineWidth = strokeWidth;
         ctx.lineCap = "round";
-        ctx.moveTo(circle.x, circle.y);
-        ctx.lineTo(circles[circle.cI].x, circles[circle.cI].y);
+        ctx.moveTo(c.x, c.y);
+        ctx.lineTo(circles[c.cI].x, circles[c.cI].y);
         ctx.stroke();
       }
     };
 
-    const createRandomTar = () => {
-      const randomTar = [];
-      for (const circle of circles) randomTar.push(createRandomPos());
+    const moveCircles = () => {
+      for (const c of circles) {
+        // Increment progress
+        c.progress += speed;
+        if (c.progress > 1) c.progress = 1;
 
-      return randomTar;
-    };
+        // Ease-in-out function
+        const t = c.progress;
+        const ease = t * t * (3 - 2 * t); // smoothstep
 
-    const moveCircle = (targets) => {
-      for (let i = 0; i < circleCount; i++) {
-        const dx = targets[i].x - circles[i].x;
-        const dy = targets[i].y - circles[i].y;
+        // Update position
+        c.x += (c.target.x - c.x) * ease;
+        c.y += (c.target.y - c.y) * ease;
 
-        circles[i].x += dx * speed;
-        circles[i].y += dy * speed;
+        // If very close, pick a new target
+        if (Math.hypot(c.target.x - c.x, c.target.y - c.y) < 1) {
+          c.target = createRandomPos();
+          c.progress = 0;
+        }
       }
     };
 
-    let targets;
+    let animationFrame;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       connectCircles();
       drawCircles();
-      moveCircle(targets);
+      moveCircles();
 
-      // Recalcultaes the random targets for which ever circle closest to its target
-      for (let i = 0; i < circleCount; i++) {
-        const dx = targets[i].x - circles[i].x;
-        const dy = targets[i].y - circles[i].y;
-
-        if (Math.hypot(dx, dy) < 20) targets[i] = createRandomPos();
-      }
-
-      requestAnimationFrame(animate);
-    };
-
-    const handleResize = () => {
-      resize();
-      drawCircles();
-      connectCircles();
+      animationFrame = requestAnimationFrame(animate);
     };
 
     // Execution
     resize();
     createCircles();
-    targets = createRandomTar();
     animate();
 
-    window.addEventListener("resize", handleResize);
-
-    // Clean-Up
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(animationFrame);
+    };
   }, []);
 
   return <canvas ref={canvasRef} id="intro-animation"></canvas>;
