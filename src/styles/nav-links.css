@@ -1,0 +1,62 @@
+/* Upon mobile query */
+#mobile-nav {
+  width: 150px;
+  height: 250px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  right: -180px;
+  top: 100%;
+
+  position: absolute;
+
+  background-color: #e842001a;
+  border-radius: 10px;
+  border: #e84200bf solid 2px;
+  /* padding: 20px; */
+}
+
+#menu {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+#nav-overlay {
+  inset: 0;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.532);
+  position: fixed;
+} /*end*/
+
+/* Upon desktop query */
+#desktop-nav {
+  display: flex;
+}
+
+#desktop-nav a {
+  margin-inline-start: 1rem;
+}
+
+nav .underline {
+  height: 1px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    var(--dark-blue),
+    var(--sweet-orange),
+    white,
+    var(--sweet-orange),
+    var(--dark-blue)
+  );
+  transform-origin: center bottom;
+  transition: 250ms ease-out;
+  transform: scaleX(0);
+}
+
+nav a:hover .underline {
+  transform: scaleX(1);
+}

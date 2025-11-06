@@ -1,5 +1,8 @@
 import "./styles/app.css";
-import NavLink from "./components/NavLink";
+import { useRef } from "react";
+
+// Assets
+import NavLinks from "./components/NavLinks";
 import ProjectCard from "./components/ProjectCard";
 import IntroAnimation from "./components/IntroAnimation";
 import cleanChase from "./assets/project_media/clean_chase.mp4";
@@ -17,14 +20,8 @@ function App() {
           <br />
           Software Developer
         </p>
-        <nav>
-          <NavLink linkName="Home" src="#" />
-          <NavLink linkName="Projects" src="#" />
-          <NavLink linkName="About" src="#" />
-          <NavLink linkName="Contact" src="#" />
-        </nav>
+        <NavLinks />
       </header>
-
       <main>
         <section id="introduction">
           <div className="description">
@@ -62,24 +59,24 @@ function App() {
             />
             <ProjectCard
               title="Pixel Kombat"
-              description="A retro-inspired arcade maze 
-              game that pays homage to the classic Pac-Man"
+              description="A retro-inspired arcade maze game that
+              reimagines the spirit of Pac-Man with modern twists and smooth gameplay"
               src={pixelKombat}
               type="image"
               href="https://github.com/klabruben3/Pixel-Kombat/tree/main/genesis"
             />
             <ProjectCard
               title="FastNote 2.0"
-              description="A minimal interactive task manager
-              built with vanilla JavaScript, HTML, and CSS"
+              description="A minimal interactive task manager built with pure JavaScript,
+              HTML, and CSS to organize and track daily goals"
               src={fastNote}
               type="image"
               href="https://klabruben3.github.io/FastNote-2.0/src"
             />
             <ProjectCard
               title="Rating Component"
-              description="A clean and engaging UI that captures
-              user feedback through a two-step interaction process"
+              description="A clean and engaging user interface that collects feedback
+              through a smooth, intuitive two-step interaction process"
               src={ratingComponent}
               type="image"
               href="https://klabruben3.github.io/interactive-rating-component/"

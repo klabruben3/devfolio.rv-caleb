@@ -41,7 +41,7 @@ body {
 
 #root {
   background-color: var(--very-dark-blue);
-  width: clamp(900px, 80vw, 1200px);
+  width: clamp(800px, 80vw, 1200px);
   height: calc(100vh - 2 * var(--paddOrMarg));
   position: relative;
 
@@ -50,4 +50,12 @@ body {
   padding-bottom: var(--paddOrMarg);
   overflow-y: auto;
   scrollbar-width: none;
+}
+
+@media (max-width: 800px) {
+  #root {
+    width: 100vw;
+    height: 100vh;
+    margin-block: 0;
+  }
 }

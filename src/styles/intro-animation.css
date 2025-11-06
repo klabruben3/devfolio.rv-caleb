@@ -1,5 +1,4 @@
 #intro-animation {
-  width: 400px;
-  height: 400px;
-  /* background-color: rgba(95, 168, 162, 0.074); */
+  width: clamp(200px, 23vw, 350px);
+  height: clamp(200px, 23vw, 350px);
 }

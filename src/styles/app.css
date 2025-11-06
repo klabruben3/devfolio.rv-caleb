@@ -6,11 +6,12 @@ header {
   top: 0;
   width: 100%;
 
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
   box-shadow: 0 1px 10px black;
   margin-bottom: var(--content-space);
   background-color: var(--very-dark-blue);
   z-index: 3;
+  position: relative;
 }
 
 header p {
@@ -22,18 +23,18 @@ header span {
   color: var(--heading-color);
 }
 
-nav {
-  display: flex;
-}
-
 main {
   width: 100%;
-  padding-inline: clamp(50px, 7vw, 100px);
+  padding-inline: 5vw;
 }
 
 #introduction {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: var(--content-space);
+
+  /* mediaquery */
+  justify-content: center;
 }
 
 main .description {
@@ -78,4 +79,11 @@ main .description .projects:active {
 
 h2 {
   font-weight: 500;
+}
+
+#recent-projects .projects {
+  margin-top: var(--content-space);
+  display: flex;
+  gap: min(2vw, 26px);
+  flex-wrap: wrap;
 }
