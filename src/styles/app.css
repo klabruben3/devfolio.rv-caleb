@@ -32,6 +32,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  row-gap: var(--gap);
 }
 
 main .description {
@@ -81,6 +82,19 @@ h2 {
 #recent-projects .projects {
   margin-top: var(--gap);
   display: flex;
-  gap: min(2vw, 26px);
+  justify-content: space-between;
+  row-gap: min(2vw, 26px);
   flex-wrap: wrap;
+}
+
+@media (max-width: 550px) {
+  main .description {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 0;
+  }
+  main .description h1 {
+    text-align: end;
+  }
 }

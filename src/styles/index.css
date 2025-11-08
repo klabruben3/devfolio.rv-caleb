@@ -10,6 +10,7 @@
   --bg-filter: #6441b138;
 
   /* dimensions */
+  font-size: clamp(14px, 1.2vw, 17px);
   --gap: 1rem;
   --offset-nav: 100px;
   --stroke-width: 2px;

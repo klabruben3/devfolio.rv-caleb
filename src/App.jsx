@@ -37,6 +37,7 @@ function App() {
               className="projects"
               href="https://github.com/klabruben3"
               target="_blank"
+              aria-label="View Projects"
             >
               VIEW PROJECTS
               <img src="arrow.png" alt="Right Arrow" width={15} />

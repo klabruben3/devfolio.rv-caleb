@@ -35,7 +35,7 @@ function Navigation() {
   return (
     <>
       <div id="nav-overlay" ref={overlayRef}></div>
-      <button id="menu" ref={buttonRef}></button>
+      <button id="menu" ref={buttonRef} aria-label="Menu"></button>
       <nav id="nav-bar" ref={navRef}>
         <NavLink linkName="Home" href="#" is_open={open} />
         <NavLink linkName="Projects" href="#" is_open={open} />
