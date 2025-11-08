@@ -1,10 +1,10 @@
 import "./styles/app.css";
-import { useRef } from "react";
+
+import Navigation from "./components/header/Navigation";
+import ProjectCard from "./components/ProjectCard";
+import IntroAnimation from "./components/effects/IntroAnimation";
 
 // Assets
-import NavLinks from "./components/NavLinks";
-import ProjectCard from "./components/ProjectCard";
-import IntroAnimation from "./components/IntroAnimation";
 import cleanChase from "./assets/project_media/clean_chase.mp4";
 import fastNote from "./assets/project_media/fastnote_2.0.png";
 import pixelKombat from "./assets/project_media/pixel_kombat.png";
@@ -20,7 +20,7 @@ function App() {
           <br />
           Software Developer
         </p>
-        <NavLinks />
+        <Navigation />
       </header>
       <main>
         <section id="introduction">

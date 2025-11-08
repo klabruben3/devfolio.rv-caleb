@@ -1,13 +1,14 @@
 .project-card {
   position: relative;
   display: block;
-  width: fit-content;
-  overflow: hidden;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   width: clamp(150px, 15vw, 230px);
   height: clamp(150px, 15vw, 230px);
   overflow: hidden;
   background-color: rgba(112, 46, 46, 0.168);
+}
+.project-card:focus-visible {
+  outline: thin solid var(--heading-color);
 }
 
 .project-card::before {
@@ -33,24 +34,23 @@
 }
 .project-info h3 {
   font-weight: 500;
-  /* letter-spacing: 5px; */
-  font-size: 0.9rem;
+  letter-spacing: 0.4rem;
   color: var(--heading-color);
   margin-bottom: 5px;
 }
-.project-info p {
-  font-size: 9px;
+.project-info h6 {
+  font-weight: 100;
   color: var(--font-color);
 }
-.project-video,
-.project-image {
+.project-thumbnail {
   width: inherit;
   display: block;
   transform-origin: center center;
   transition: transform 250ms;
 }
 
-.project-card:hover .project-video,
-.project-card:hover .project-image {
+.project-card:hover .project-thumbnail,
+.project-card:focus-visible .project-thumbnail,
+.project-card:active .project-thumbnail {
   transform: scale(1.1);
 }

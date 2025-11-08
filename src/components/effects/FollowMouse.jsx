@@ -1,4 +1,4 @@
-import "../styles/follow-mouse.css";
+import "../../styles/effects/follow-mouse.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 

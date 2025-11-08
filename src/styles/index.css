@@ -1,15 +1,18 @@
 :root {
-  --very-dark-blue: #1d1f27ff;
+  --very-dark-blue: #1e1b2d;
+  --dark-blue: #222033;
   --gray: #68739c;
-  --dark-blue: #232631;
   --dark-purple: #6441b1ff;
   --sweet-orange: #e84300;
   --sweet-pink: #bc5b85;
   --font-color: #fff8e5;
   --heading-color: #ffe6a0;
   --bg-filter: #6441b138;
-  --content-space: 15px;
-  --paddOrMarg: 10px;
+
+  /* dimensions */
+  --gap: 1rem;
+  --offset-nav: 100px;
+  --stroke-width: 2px;
 }
 
 @font-face {
@@ -42,14 +45,20 @@ body {
 #root {
   background-color: var(--very-dark-blue);
   width: clamp(800px, 80vw, 1200px);
-  height: calc(100vh - 2 * var(--paddOrMarg));
+  height: calc(100vh - 2 * var(--gap));
   position: relative;
 
   box-shadow: 0 0 10px black;
-  margin-block: var(--paddOrMarg);
-  padding-bottom: var(--paddOrMarg);
+  margin-block: var(--gap);
+  padding-bottom: var(--gap);
   overflow-y: auto;
   scrollbar-width: none;
+  overflow-x: hidden;
+}
+
+header,
+main {
+  user-select: none;
 }
 
 @media (max-width: 800px) {

@@ -1,0 +1,41 @@
+#nav-bar a {
+  transition: transform 500ms ease-out;
+}
+#nav-bar a:nth-child(1) {
+  transform: translateX(var(--offset-nav));
+}
+#nav-bar a:nth-child(2) {
+  transform: translateX(calc(2 * var(--offset-nav)));
+}
+#nav-bar a:nth-child(3) {
+  transform: translateX(calc(3 * var(--offset-nav)));
+}
+#nav-bar a:nth-child(4) {
+  transform: translateX(calc(4 * var(--offset-nav)));
+}
+
+#nav-bar a.open {
+  transform: translateX(0);
+}
+
+nav .underline {
+  height: 1px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    var(--dark-blue),
+    var(--sweet-orange),
+    white,
+    var(--sweet-orange),
+    var(--dark-blue)
+  );
+  transform-origin: center bottom;
+  transition: 250ms ease-out;
+  transform: scaleX(0);
+}
+
+nav a:hover .underline,
+nav a:focus-visible .underline,
+nav a:active .underline {
+  transform: scaleX(1);
+}

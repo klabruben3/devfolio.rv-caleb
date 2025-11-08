@@ -1,4 +1,4 @@
-import "../styles/intro-animation.css";
+import "../../styles/effects/intro-animation.css";
 import { useRef, useEffect } from "react";
 
 function IntroAnimation() {
@@ -8,7 +8,7 @@ function IntroAnimation() {
     const canvas = canvasRef.current;
     const offscreen = canvas.transferControlToOffscreen();
     const worker = new Worker(
-      new URL("../workers/introAnimation.worker.js", import.meta.url),
+      new URL("../../workers/introAnimation.worker.js", import.meta.url),
       { type: "module" }
     );
 

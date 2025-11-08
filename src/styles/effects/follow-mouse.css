@@ -6,7 +6,7 @@
   transform: translate(-50%, -50%);
 
   border-radius: 50%;
-  border: 5px dashed black;
+  border: var(--stroke-width) dashed black;
 
   animation: rotate 2s ease-in-out infinite;
 }

@@ -22,7 +22,7 @@ const ctxRef = { ctx: null };
 
 const createRandomPos = () => ({
   x: Math.random() * (canvasRef.canvas.width - 2 * circleRad) + circleRad,
-  y: Math.random() * (canvasRef.canvas.width - 2 * circleRad) + circleRad,
+  y: Math.random() * (canvasRef.canvas.height - 2 * circleRad) + circleRad,
 });
 
 const circles = [];
@@ -46,6 +46,7 @@ const createCircles = () => {
 const connectCircles = () => {
   const ctx = ctxRef.ctx;
   ctx.strokeStyle = lineColor;
+  ctx.globalCompositeOperation = "xor";
   ctx.lineWidth = strokeWidth;
   for (const c of circles) {
     ctx.beginPath();
@@ -59,6 +60,7 @@ const connectCircles = () => {
 const drawCircles = () => {
   const ctx = ctxRef.ctx;
   ctx.lineWidth = strokeWidth;
+  ctx.globalCompositeOperation = "source-over";
   for (const c of circles) {
     ctx.beginPath();
     ctx.fillStyle = c.fillColor;

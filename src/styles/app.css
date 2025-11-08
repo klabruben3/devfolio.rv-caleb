@@ -4,14 +4,12 @@ header {
   justify-content: space-around;
   position: sticky;
   top: 0;
-  width: 100%;
 
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   box-shadow: 0 1px 10px black;
-  margin-bottom: var(--content-space);
+  margin-bottom: var(--gap);
   background-color: var(--very-dark-blue);
   z-index: 3;
-  position: relative;
 }
 
 header p {
@@ -19,21 +17,20 @@ header p {
 }
 
 header span {
-  font-size: 1rem;
   color: var(--heading-color);
 }
 
 main {
   width: 100%;
   padding-inline: 5vw;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap);
 }
 
 #introduction {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: var(--content-space);
-
-  /* mediaquery */
   justify-content: center;
 }
 
@@ -44,7 +41,7 @@ main .description {
 
 main .description h1 {
   font-weight: 550;
-  letter-spacing: 3px;
+  letter-spacing: 0.2rem;
 }
 
 main .description p {
@@ -62,7 +59,7 @@ main .description .projects {
   width: 180px;
   border-radius: 20px;
   color: black;
-  margin-top: var(--content-space);
+  margin-top: var(--gap);
   background-color: var(--font-color);
   display: flex;
   align-items: center;
@@ -74,7 +71,7 @@ main .description .projects {
 
 main .description .projects:focus-visible,
 main .description .projects:active {
-  border: 2px solid var(--sweet-orange);
+  border: var(--stroke-width) solid var(--sweet-orange);
 }
 
 h2 {
@@ -82,7 +79,7 @@ h2 {
 }
 
 #recent-projects .projects {
-  margin-top: var(--content-space);
+  margin-top: var(--gap);
   display: flex;
   gap: min(2vw, 26px);
   flex-wrap: wrap;

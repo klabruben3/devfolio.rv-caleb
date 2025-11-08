@@ -7,18 +7,33 @@ function ProjectCard({ title, description, src, type, href }) {
   let media;
   let onMouseEnter;
   let onMouseLeave;
+  let onTouchStart;
+  let onTouchEnd;
 
-  const describe = !show ? <p>{description}</p> : null;
+  const describe = !show ? <h6>{description}</h6> : null;
 
   // Handles if media is video or image
   if (type == "video") {
     media = (
-      <video className="project-video" src={src} ref={videoRef} loop muted />
+      <video
+        className="project-thumbnail"
+        src={src}
+        ref={videoRef}
+        loop
+        muted
+      />
     );
+
+    // For mobile devices
+    onTouchStart = () => videoRef.current.play();
+    onTouchEnd = () => videoRef.current.pause(); //
+
     onMouseEnter = () => videoRef.current.play();
     onMouseLeave = () => videoRef.current.pause();
   } else {
-    media = <img src={src} className="project-image" alt="Project Thumbnail" />;
+    media = (
+      <img src={src} className="project-thumbnail" alt="Project Thumbnail" />
+    );
   }
 
   // Handles whether to show the description or not
@@ -33,6 +48,8 @@ function ProjectCard({ title, description, src, type, href }) {
   return (
     <>
       <a
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         href={href}
