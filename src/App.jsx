@@ -9,6 +9,7 @@ import cleanChase from "./assets/project_media/clean_chase.mp4";
 import fastNote from "./assets/project_media/fastnote_2.0.png";
 import pixelKombat from "./assets/project_media/pixel_kombat.png";
 import ratingComponent from "./assets/project_media/rating-component.png";
+import cv from "./assets/doc/Ruben_Caleb_SoftwareDeveloper_CV.pdf";
 
 function App() {
   return (
@@ -39,11 +40,40 @@ function App() {
               target="_blank"
               aria-label="View Projects"
             >
-              VIEW PROJECTS
+              GitHub
               <img src="arrow.png" alt="Right Arrow" width={15} />
             </a>
+            <br />
           </div>
           <IntroAnimation />
+          <p className="about">
+            Hey, I’m Ruben Caleb. I study Computer Science & Mathematics at
+            North‑West University and build fast, interactive web experiences,
+            mostly with React.js, JavaScript, and C++. I care about clean UX,
+            simple performance, and code that’s easy to maintain. I love turning
+            messy problems into clear, usable tools.
+            <br />
+            <br />
+            Lately, I’ve been diving into game development with Godot and
+            exploring Python projects, while keeping my web and C++ skills sharp
+            through personal projects and prototypes.
+          </p>
+
+          <ul className="prof-links">
+            <li>
+              <a
+                target="_blank"
+                href="https://github.com/klabruben3?tab=repositories"
+              >
+                GitHub Repos
+              </a>
+            </li>
+            <li>
+              <a href={cv} target="_blank" rel="noopener noreferrer">
+                Download cv
+              </a>
+            </li>
+          </ul>
         </section>
         <hr />
         <section id="recent-projects">

@@ -3,7 +3,7 @@
   --dark-blue: #222033;
   --gray: #68739c;
   --dark-purple: #6441b1ff;
-  --sweet-orange: #e84300;
+  --sweet-orange: #fc5817;
   --sweet-pink: #bc5b85;
   --font-color: #fff8e5;
   --heading-color: #ffe6a0;
@@ -35,6 +35,18 @@
 a {
   all: unset;
   cursor: pointer;
+}
+
+h1 {
+  font-weight: 550;
+  letter-spacing: 0.2rem;
+}
+h2 {
+  font-weight: 500;
+}
+li {
+  list-style-position: inside;
+  list-style-type: none;
 }
 
 body {

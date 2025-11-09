@@ -28,24 +28,11 @@ main {
   row-gap: var(--gap);
 }
 
-#introduction {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  row-gap: var(--gap);
-}
-
 main .description {
-  margin-top: auto;
-  margin-right: auto;
+  display: inline-block;
 }
 
-main .description h1 {
-  font-weight: 550;
-  letter-spacing: 0.2rem;
-}
-
-main .description p {
+#introduction p {
   color: var(--gray);
 }
 
@@ -54,18 +41,38 @@ main .description span {
   font-size: 1.15rem;
 }
 
+#introduction .about {
+  border-left: var(--gray) medium solid;
+  padding-left: var(--gap);
+  margin-top: auto;
+}
+
+#introduction .prof-links {
+  display: flex;
+  align-items: center;
+  margin-top: var(--gap);
+  gap: calc(var(--gap) * 2);
+}
+
+#introduction .prof-links li:hover {
+  transition: color 250ms ease-out;
+}
+#introduction .prof-links li:hover {
+  color: var(--sweet-orange);
+}
+
 main .description .projects {
   all: unset;
-  height: 40px;
-  width: 180px;
-  border-radius: 20px;
+  height: 30px;
+  width: 110px;
+  border-radius: 15px;
   color: black;
   margin-top: var(--gap);
   background-color: var(--font-color);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-inline: 15px;
+  justify-content: center;
+  column-gap: 15px;
   cursor: pointer;
   box-sizing: border-box;
 }
@@ -75,26 +82,10 @@ main .description .projects:active {
   border: var(--stroke-width) solid var(--sweet-orange);
 }
 
-h2 {
-  font-weight: 500;
-}
-
 #recent-projects .projects {
   margin-top: var(--gap);
   display: flex;
   justify-content: space-between;
   row-gap: min(2vw, 26px);
   flex-wrap: wrap;
-}
-
-@media (max-width: 550px) {
-  main .description {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    margin-right: 0;
-  }
-  main .description h1 {
-    text-align: end;
-  }
 }

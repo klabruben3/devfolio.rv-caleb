@@ -1,5 +1,5 @@
-const circleCount = 20;
-const speed = 0.005;
+const circleCount = 15;
+const speed = 0.003;
 const strokeWidth = 2;
 const circleRad = 5;
 const colors = [
@@ -46,7 +46,6 @@ const createCircles = () => {
 const connectCircles = () => {
   const ctx = ctxRef.ctx;
   ctx.strokeStyle = lineColor;
-  ctx.globalCompositeOperation = "xor";
   ctx.lineWidth = strokeWidth;
   for (const c of circles) {
     ctx.beginPath();
@@ -60,7 +59,6 @@ const connectCircles = () => {
 const drawCircles = () => {
   const ctx = ctxRef.ctx;
   ctx.lineWidth = strokeWidth;
-  ctx.globalCompositeOperation = "source-over";
   for (const c of circles) {
     ctx.beginPath();
     ctx.fillStyle = c.fillColor;

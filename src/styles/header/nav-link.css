@@ -1,20 +1,20 @@
-#nav-bar a {
+#nav-bar li {
   transition: transform 500ms ease-out;
 }
-#nav-bar a:nth-child(1) {
+#nav-bar li:nth-child(1) {
   transform: translateX(var(--offset-nav));
 }
-#nav-bar a:nth-child(2) {
+#nav-bar li:nth-child(2) {
   transform: translateX(calc(2 * var(--offset-nav)));
 }
-#nav-bar a:nth-child(3) {
+#nav-bar li:nth-child(3) {
   transform: translateX(calc(3 * var(--offset-nav)));
 }
-#nav-bar a:nth-child(4) {
+#nav-bar li:nth-child(4) {
   transform: translateX(calc(4 * var(--offset-nav)));
 }
 
-#nav-bar a.open {
+#nav-bar li.open {
   transform: translateX(0);
 }
 
