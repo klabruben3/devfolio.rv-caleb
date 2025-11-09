@@ -1,6 +1,7 @@
 import "../../styles/header/navigation.css";
 import { useRef, useEffect, useState } from "react";
 import NavLink from "./NavLink";
+import menu from "../../assets/menu.png";
 
 function Navigation() {
   const navRef = useRef(null);
@@ -35,7 +36,9 @@ function Navigation() {
   return (
     <>
       <div id="nav-overlay" ref={overlayRef}></div>
-      <button id="menu" ref={buttonRef} aria-label="Menu"></button>
+      <button id="menu" ref={buttonRef} aria-label="Menu">
+        <img src={menu} alt="Menu.png" />
+      </button>
       <nav id="nav-bar" ref={navRef}>
         <NavLink linkName="Home" href="#" is_open={open} />
         <NavLink linkName="Projects" href="#" is_open={open} />

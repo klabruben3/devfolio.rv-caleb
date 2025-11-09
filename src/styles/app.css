@@ -22,7 +22,7 @@ header span {
 
 main {
   width: 100%;
-  padding-inline: 5vw;
+  padding-inline: clamp(var(--gap), 5vw, 75px);
   display: flex;
   flex-direction: column;
   row-gap: var(--gap);
