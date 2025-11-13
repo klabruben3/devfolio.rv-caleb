@@ -52,7 +52,7 @@
   background-color: #e842001a;
   border-radius: 0.5rem;
   border: #e84200bf solid var(--stroke-width);
-  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease;
   overflow: hidden;
 }
 

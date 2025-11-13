@@ -1,5 +1,6 @@
 #nav-bar li {
-  transition: transform 500ms ease-out;
+  transition: transform 0.25s ease;
+  will-change: transform;
 }
 #nav-bar li:nth-child(1) {
   transform: translateX(var(--offset-nav));

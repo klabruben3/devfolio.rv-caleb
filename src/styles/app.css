@@ -26,6 +26,9 @@ main {
   display: flex;
   flex-direction: column;
   row-gap: var(--gap);
+  padding-block: calc(var(--gap) * 2);
+  box-shadow: 0 1px 10px #000;
+  margin-bottom: var(--gap);
 }
 
 main .description {

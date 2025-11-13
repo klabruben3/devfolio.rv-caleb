@@ -47,13 +47,13 @@ const connectCircles = () => {
   const ctx = ctxRef.ctx;
   ctx.strokeStyle = lineColor;
   ctx.lineWidth = strokeWidth;
+  ctx.beginPath();
+  ctx.lineCap = "round";
   for (const c of circles) {
-    ctx.beginPath();
-    ctx.lineCap = "round";
     ctx.moveTo(c.x, c.y);
     ctx.lineTo(circles[c.cI].x, circles[c.cI].y);
-    ctx.stroke();
   }
+  ctx.stroke();
 };
 
 const drawCircles = () => {
@@ -87,27 +87,61 @@ const moveCircles = () => {
   }
 };
 
+let animationFrame;
+
 const animate = () => {
   ctxRef.ctx.clearRect(0, 0, canvasRef.canvas.width, canvasRef.canvas.height);
   connectCircles();
   drawCircles();
   moveCircles();
 
-  requestAnimationFrame(animate);
+  animationFrame = requestAnimationFrame(animate);
 };
 
-onmessage = (e) => {
-  if (e.data.commit === "init") {
-    canvasRef.canvas = e.data.canvas;
-    ctxRef.ctx = canvasRef.canvas.getContext("2d");
-    canvasRef.canvas.width = e.data.w;
-    canvasRef.canvas.height = e.data.h;
+let is_animate;
+let is_intersecting;
 
-    // resize();
-    createCircles();
-    animate();
-  } else if (e.data.commit === "resize") {
-    canvasRef.canvas.width = e.data.w;
-    canvasRef.canvas.height = e.data.h;
+onmessage = (e) => {
+  const { commit, src, canvas, w, h } = e.data;
+  switch (commit) {
+    case "init":
+      canvasRef.canvas = canvas;
+      ctxRef.ctx = canvas.getContext("2d");
+      canvas.width = w;
+      canvas.height = h;
+      createCircles();
+      animationFrame = requestAnimationFrame(animate);
+      is_animate = true;
+      is_intersecting = false;
+      break;
+
+    case "pause":
+      cancelAnimationFrame(animationFrame);
+      if (src === "introAnimation") is_intersecting = true;
+      is_animate = false;
+      if (src === "introAnimation") break;
+      setTimeout(() => {
+        postMessage(true);
+      }, 250);
+      break;
+
+    case "continue":
+      const delay = src === "introAnimation" ? 0 : 250;
+      if (src === "introAnimation") is_intersecting = false;
+      if (!is_animate && !is_intersecting) {
+        setTimeout(() => {
+          animationFrame = requestAnimationFrame(animate);
+          is_animate = true;
+        }, delay);
+      }
+      if (src === "introAnimation") break;
+      postMessage(false);
+
+      break;
+
+    case "resize":
+      canvasRef.canvas.width = w;
+      canvasRef.canvas.height = h;
+      break;
   }
 };
