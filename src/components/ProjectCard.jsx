@@ -1,87 +1,82 @@
-import "../styles/project-card.css";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { ExternalLink, Github } from "lucide-react";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 
-function ProjectCard({ title, description, src, type, href }) {
-  const [show, setShow] = useState(window.innerWidth < 1100);
-  const linkRef = useRef(null);
-  const videoRef = useRef(undefined);
-
-  // Handles whether to show the description or not
-  const describe = !show ? <h6>{description}</h6> : null;
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1100px)");
-    const handleMediaQuery = (e) => setShow(e.matches);
-    mediaQuery.addEventListener("change", handleMediaQuery);
-
-    return () => mediaQuery.removeEventListener("change", handleMediaQuery);
-  }, []);
-
-  useEffect(() => {
-    const link = linkRef.current;
-    if (type === "video") {
-      const video = videoRef.current;
-      const videoPlay = () => video.play();
-      const videoPause = () => video.pause();
-
-      link.addEventListener("mouseenter", videoPause);
-      link.addEventListener("mouseleave", videoPlay);
-      link.addEventListener("focusin", videoPause);
-      link.addEventListener("focusout", videoPlay);
-      link.addEventListener("touchstart", videoPause);
-      link.addEventListener("touchend", videoPlay);
-
-      return () => {
-        link.removeEventListener("mouseenter", videoPause);
-        link.removeEventListener("mouseleave", videoPlay);
-        link.removeEventListener("focusin", videoPause);
-        link.removeEventListener("focusout", videoPlay);
-        link.removeEventListener("touchstart", videoPause);
-        link.removeEventListener("touchend", videoPlay);
-      };
-    } else if (type === "image") {
-      const toggleScale = () => link.classList.toggle("active");
-
-      link.addEventListener("mouseenter", toggleScale);
-      link.addEventListener("mouseleave", toggleScale);
-      link.addEventListener("touchstart", toggleScale);
-      link.addEventListener("touchend", toggleScale);
-
-      return () => {
-        link.removeEventListener("mouseenter", toggleScale);
-        link.removeEventListener("mouseleave", toggleScale);
-        link.removeEventListener("touchstart", toggleScale);
-        link.removeEventListener("touchend", toggleScale);
-      };
-    }
-  }, []);
-
+export function ProjectCard({ project, index }) {
   return (
-    <>
-      <a
-        ref={linkRef}
-        href={href}
-        className={`project ${type === "video" ? "video" : "image"}`}
-        target="_blank"
-        style={{ backgroundImage: `url(${src})` }}
-        aria-label={title}
-      >
-        {type === "video" && (
-          <video
-            ref={videoRef}
-            className="project-thumbnail"
-            src={src}
-            autoPlay
-            loop
-            muted
-          />
-        )}
-        <div className="project-info">
-          <h3>{title}</h3>
-          {describe}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="group relative bg-card border border-border rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-300"
+    >
+      {/* Image */}
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+      </div>
+
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+          {project.title}
+        </h3>
+        <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+          {project.description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag) => (
+            <Badge
+              key={tag}
+              variant="secondary"
+              className="text-xs bg-secondary/50 hover:bg-cyan-500/20 hover:text-cyan-400 transition-colors duration-300"
+            >
+              {tag}
+            </Badge>
+          ))}
         </div>
-      </a>
-    </>
+
+        {/* Links */}
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            className="flex-1 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10"
+            asChild
+          >
+            <a href={project.github} target="_blank" rel="noopener noreferrer">
+              <Github className="mr-2 h-4 w-4" />
+              Code
+            </a>
+          </Button>
+          {project.demo && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex-1 border-purple-500/50 text-purple-400 hover:bg-purple-500/10"
+              asChild
+            >
+              <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-2 h-4 w-4" />
+                Demo
+              </a>
+            </Button>
+          )}
+        </div>
+      </div>
+
+      {/* Hover Effect */}
+      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-purple-500/5" />
+      </div>
+    </motion.div>
   );
 }
-
-export default ProjectCard;

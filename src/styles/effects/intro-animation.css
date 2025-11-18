@@ -1,5 +1,0 @@
-#intro-animation {
-  width: clamp(160px, 23vw, 350px);
-  height: clamp(160px, 23vw, 350px);
-  float: right;
-}
