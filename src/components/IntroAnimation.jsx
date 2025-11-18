@@ -11,8 +11,8 @@ function IntroAnimation() {
     // Checks for how many circles should be on the screen
     if (window.innerWidth >= 1000) count.current = 100;
     else if (window.innerWidth < 1000 && window.innerWidth >= 600)
-      count.current = 25;
-    else if (window.innerWidth < 600) count.current = 15;
+      count.current = 75;
+    else if (window.innerWidth < 600) count.current = 50;
     //
 
     const canvas = canvasRef.current;

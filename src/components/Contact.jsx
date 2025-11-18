@@ -39,19 +39,19 @@ export function Contact() {
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com",
+      url: "https://github.com/klabruben3",
       color: "hover:text-cyan-400",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/ruben-caleb-b5243326b/",
       color: "hover:text-blue-400",
     },
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:ruben@example.com",
+      url: "mailto:klabruben@gmail.com",
       color: "hover:text-purple-400",
     },
   ];

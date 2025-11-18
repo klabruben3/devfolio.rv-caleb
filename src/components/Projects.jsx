@@ -1,67 +1,60 @@
 import { motion } from "motion/react";
 import { ProjectCard } from "./ProjectCard";
 
+// Assets
+import devfolio from "../assets/project_media/devfolio.png";
+import cleanChase from "../assets/project_media/clean_chase.png";
+import fastNote from "../assets/project_media/fastnote_2.0.png";
+import pixelKombat from "../assets/project_media/pixel_kombat.png";
+import ratingComponent from "../assets/project_media/rating-component.png";
+import cv from "../assets/doc/Ruben_Caleb_SoftwareDeveloper_CV.pdf";
+
 export function Projects() {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Ruben Caleb | Devfolio",
       description:
-        "A full-featured online shopping platform with cart management, payment integration, and admin dashboard.",
-      image:
-        "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-      tags: ["React", "Tailwind", "Node.js", "Stripe"],
-      github: "https://github.com",
-      demo: "https://example.com",
+        "A fully custom developer portfolio built using React.js and Vite, styled with Tailwind CSS and enhanced with shadcn/ui components.",
+      image: devfolio,
+      tags: ["ReactJs", "JavaScript", "Tailwind", "Canvas API", "Web workers"],
+      github: null,
+      demo: "https://klabruben3.github.io/devfolio.rv-caleb/",
     },
     {
-      title: "2D Platformer Game",
+      title: "Clean Chase",
       description:
-        "A retro-style platformer game with physics-based mechanics, collectibles, and multiple levels.",
-      image:
-        "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
-      tags: ["Godot", "GDScript", "Game Design"],
-      github: "https://github.com",
-      demo: "https://example.com",
+        "Minimal JavaScript animation that simulates a chain of circles following a randomly moving target across the canvas",
+      image: cleanChase,
+      tags: ["HTML5", "CSS3", "Javascript", "Canvas API"],
+      github: "https://github.com/klabruben3/clean-chase",
+      demo: "https://klabruben3.github.io/clean-chase/",
     },
     {
-      title: "Portfolio Dashboard",
+      title: "Pixel Kombat",
       description:
-        "Interactive analytics dashboard for visualizing project metrics and performance data.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      tags: ["React", "Recharts", "TypeScript"],
-      github: "https://github.com",
-      demo: "https://example.com",
-    },
-    {
-      title: "IoT Weather Station",
-      description:
-        "Arduino-based weather monitoring system with real-time data visualization on a web dashboard.",
-      image:
-        "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=800&q=80",
-      tags: ["Arduino", "C++", "Web Sockets", "React"],
-      github: "https://github.com",
+        "A retro-inspired arcade maze game that reimagines the spirit of Pac-Man with modern twists and smooth gameplay",
+      image: pixelKombat,
+      tags: ["C++", "SFML", "Game Design"],
+      github: "https://github.com/klabruben3/Pixel-Kombat/tree/main/genesis",
       demo: null,
     },
     {
-      title: "Task Management App",
+      title: "FastNote 2.0",
       description:
-        "Collaborative task manager with real-time updates, team features, and productivity analytics.",
-      image:
-        "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      tags: ["React", "Firebase", "Tailwind"],
-      github: "https://github.com",
-      demo: "https://example.com",
+        "A minimal interactive task manager built with pure JavaScript, HTML, and CSS to organize and track daily goals",
+      image: fastNote,
+      tags: ["HTML", "CSS", "JavaScript"],
+      github: "https://github.com/klabruben3/FastNote-2.0",
+      demo: "https://klabruben3.github.io/FastNote-2.0/src",
     },
     {
-      title: "Data Visualization Tool",
+      title: "Rating Component",
       description:
-        "MATLAB-based tool for analyzing and visualizing complex scientific datasets.",
-      image:
-        "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&q=80",
-      tags: ["MATLAB", "Python", "Data Science"],
-      github: "https://github.com",
-      demo: null,
+        "A clean and engaging user interface that collects feedback through a smooth, intuitive two-step interaction process",
+      image: ratingComponent,
+      tags: ["HTML", "CSS"],
+      github: "https://github.com/klabruben3/interactive-rating-component",
+      demo: "https://klabruben3.github.io/interactive-rating-component/",
     },
   ];
 
@@ -96,6 +89,26 @@ export function Projects() {
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
+      </div>
+      <div className="max-w-7xl mx-auto">
+        <ul className="flex gap-8 mt-6">
+          <li className="relative text-muted-foreground hover:text-foreground transition-colors duration-200 group">
+            <a href={cv} target="_blank" rel="noopener noreferrer">
+              Download my CV
+            </a>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange to-purple-500 group-hover:w-full transition-all duration-300"></span>
+          </li>
+          <li className="relative text-muted-foreground hover:text-foreground transition-colors duration-200 group">
+            <a
+              href="https://github.com/klabruben3?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View all projects
+            </a>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange to-purple-500 group-hover:w-full transition-all duration-300"></span>
+          </li>
+        </ul>
       </div>
     </section>
   );

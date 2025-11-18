@@ -46,17 +46,23 @@ export function ProjectCard({ project, index }) {
 
         {/* Links */}
         <div className="flex gap-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="flex-1 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10"
-            asChild
-          >
-            <a href={project.github} target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-4 w-4" />
-              Code
-            </a>
-          </Button>
+          {project.github && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex-1 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10"
+              asChild
+            >
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="mr-2 h-4 w-4" />
+                Code
+              </a>
+            </Button>
+          )}
           {project.demo && (
             <Button
               variant="outline"
