@@ -39,27 +39,9 @@ function IntroAnimation() {
         h: canvas.offsetHeight,
         commit: "resize",
       });
-
-    // const observer = new IntersectionObserver(
-    //   ([entry]) => {
-    //     if (entry.isIntersecting) {
-    //       worker.postMessage({ commit: "continue", src: "introAnimation" });
-    //     } else {
-    //       worker.postMessage({ commit: "pause", src: "introAnimation" });
-    //     }
-    //   },
-    //   {
-    //     root: document.getElementById("root"),
-    //     threshold: 0,
-    //   }
-    // );
-
-    // observer.observe(canvas);
     window.addEventListener("resize", handleResize);
 
     return () => {
-      // observer.unobserve(canvas);
-      // observer.disconnect();
       window.removeEventListener("resize", handleResize);
     };
   }, []);
@@ -67,7 +49,7 @@ function IntroAnimation() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed w-full h-full pointer-events-none"
+      className="fixed inset-0 w-full h-full pointer-events-none"
     />
   );
 }

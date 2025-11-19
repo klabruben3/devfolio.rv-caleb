@@ -14,8 +14,8 @@ export function AnalyticsCharts({ skills }) {
   }));
 
   return (
-    <div className="w-full h-[300px] min-w-0">
-      <ResponsiveContainer width="100%" height="100%" minWidth={0}>
+    <div className="w-full h-[300px]">
+      <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
           cx="50%"
           cy="50%"

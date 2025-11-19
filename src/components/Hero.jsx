@@ -26,24 +26,19 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-5xl mb-6">
-            <span className="h-col">
-              Building modern, intelligent, and expressive web experiences.
-            </span>
+          <h1 className="text-3xl text-center mb-6">
+            <span className="h-col">Building expressive web experiences</span>
           </h1>
 
-          <div className="text-right border-right pr-2 mb-6">
+          <div className="text-center pr-2 mb-6">
             <p className="text-muted-foreground">
               Hey, I'm Ruben Caleb. I study Computer Science & Mathematics at
               North-West University and build fast, interactive web experiences,
-              mostly with React.js, JavaScript, and C++. I care about clean UX,
-              simple performance, and code that's easy to maintain. I love
-              turning messy problems into clear, usable tools.
+              mostly with React.js, JavaScript, and C++.
               <br />
-              <br />
-              Lately, I've been diving into game development with Godot and
-              exploring Python projects, while keeping my web and C++ skills
-              sharp through personal projects and prototypes.
+              <br />I care about clean UX, simple performance, and code that's
+              easy to maintain. I love turning messy problems into clear, usable
+              tools.
             </p>
           </div>
         </motion.div>

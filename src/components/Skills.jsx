@@ -16,7 +16,6 @@ export function Skills() {
       { name: "SFML", level: 70 },
       { name: "C++", level: 72 },
       { name: "Game Design", level: 80 },
-      { name: "Physics Systems", level: 68 },
     ],
     "Productivity / Microsoft Apps": [
       { name: "Excel", level: 92 },
@@ -45,12 +44,12 @@ export function Skills() {
       <h3 className="mb-8 text-center">Skills & Expertise</h3>
 
       <Tabs defaultValue="Front-End Web Development" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8">
+        <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8 tab">
           {Object.keys(skillsByIndustry).map((industry) => (
             <TabsTrigger
               key={industry}
               value={industry}
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-purple-600/20"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-purple-600/20 text-wrap"
             >
               {industry}
             </TabsTrigger>

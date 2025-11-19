@@ -13,7 +13,7 @@ import {
 export function TechIcons() {
   const techStack = [
     { icon: Layout, name: "React", color: "text-cyan-400" },
-    { icon: Code2, name: "JavaScript", color: "text-yellow-400" },
+    { icon: Code2, name: "JS", color: "text-yellow-400" },
     { icon: Terminal, name: "Python", color: "text-blue-400" },
     { icon: Gamepad2, name: "Godot", color: "text-purple-400" },
     { icon: Cpu, name: "C++", color: "text-pink-400" },
