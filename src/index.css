@@ -288,7 +288,6 @@
   iframe,
   embed,
   object {
-    vertical-align: middle;
     display: block;
   }
 
@@ -565,6 +564,10 @@
     z-index: 10;
   }
 
+  .z--1 {
+    z-index: -1;
+  }
+
   .z-50 {
     z-index: 50;
   }
@@ -626,7 +629,6 @@
   }
 
   .line-clamp-3 {
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
@@ -643,6 +645,12 @@
 
   .flex {
     display: flex;
+  }
+
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .grid {

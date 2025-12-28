@@ -17,7 +17,7 @@ export function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Background Animation */}
-      <IntroAnimation />
+      {/* <IntroAnimation /> */}
 
       {/* Content */}
       <div className="absolute max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">

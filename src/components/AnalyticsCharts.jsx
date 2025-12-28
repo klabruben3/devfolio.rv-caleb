@@ -10,7 +10,9 @@ export function AnalyticsCharts({ skills }) {
   const chartData = skills.map((skill, index) => ({
     name: skill.name,
     value: skill.level,
-    fill: `hsl(${190 + index * 30}, 70%, 60%)`,
+    fill: `rgba(${index * 10}, ${index * 5}, ${index * 2.5}, ${
+      index / skills.length
+    })`,
   }));
 
   return (
@@ -19,25 +21,23 @@ export function AnalyticsCharts({ skills }) {
         <RadialBarChart
           cx="50%"
           cy="50%"
-          innerRadius="20%"
+          innerRadius="10%"
           outerRadius="90%"
           data={chartData}
           startAngle={90}
           endAngle={-270}
         >
-          <PolarAngleAxis
-            type="number"
-            domain={[0, 100]}
-            angleAxisId={0}
-            tick={false}
-          />
+          <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
           <RadialBar
-            background
+            background={{
+              fill: "#22222269",
+              strokeWidth: 2,
+            }}
+            stroke="orangered"
             dataKey="value"
-            cornerRadius={10}
             label={{
               position: "insideStart",
-              fill: "#fff",
+              fill: "gray",
               fontSize: 12,
               formatter: (value) => `${value}%`,
             }}

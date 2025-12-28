@@ -112,30 +112,6 @@ onmessage = (e) => {
       is_intersecting = false;
       break;
 
-    // case "pause":
-    //   cancelAnimationFrame(animationFrame);
-    //   if (src === "introAnimation") is_intersecting = true;
-    //   is_animate = false;
-    //   if (src === "introAnimation") break;
-    //   setTimeout(() => {
-    //     postMessage(true);
-    //   }, 250);
-    //   break;
-
-    // case "continue":
-    //   const delay = src === "introAnimation" ? 0 : 250;
-    //   if (src === "introAnimation") is_intersecting = false;
-    //   if (!is_animate && !is_intersecting) {
-    //     setTimeout(() => {
-    //       animationFrame = requestAnimationFrame(animate);
-    //       is_animate = true;
-    //     }, delay);
-    //   }
-    //   if (src === "introAnimation") break;
-    //   postMessage(false);
-
-    //   break;
-
     case "resize":
       canvasRef.canvas.width = w;
       canvasRef.canvas.height = h;

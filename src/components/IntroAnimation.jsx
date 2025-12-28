@@ -9,10 +9,10 @@ function IntroAnimation() {
 
   useEffect(() => {
     // Checks for how many circles should be on the screen
-    if (window.innerWidth >= 1000) count.current = 100;
+    if (window.innerWidth >= 1000) count.current = 25;
     else if (window.innerWidth < 1000 && window.innerWidth >= 600)
-      count.current = 75;
-    else if (window.innerWidth < 600) count.current = 50;
+      count.current = 15;
+    else if (window.innerWidth < 600) count.current = 10;
     //
 
     const canvas = canvasRef.current;

@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import { Skills } from "./Skills";
+import { Skill } from "./Skill";
 import { Timeline } from "./Timeline";
 import { TechIcons } from "./TechIcons";
+import Skills from "./skills";
 
 export function About() {
   return (
@@ -15,6 +16,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
+          <Skills />
           <div className="inline-block mb-4">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
               About Me
@@ -51,7 +53,7 @@ export function About() {
         <TechIcons />
 
         {/* Skills Section */}
-        <Skills />
+        <Skill />
 
         {/* Timeline Section */}
         <Timeline />
